@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class UserType extends AbstractType
+class GroupType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -14,10 +14,8 @@ class UserType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('username')
-            ->add('password')
-            ->add('email')
-            ->add('groups')
+            ->add('name')
+            ->add('users')
             ->add('save', 'submit')
         ;
     }
@@ -27,7 +25,7 @@ class UserType extends AbstractType
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        $resolver->setDefaults(['data_class' => 'AppBundle\Entity\User']);
+        $resolver->setDefaults(['data_class' => 'AppBundle\Entity\Group']);
     }
 
     /**
@@ -35,6 +33,6 @@ class UserType extends AbstractType
      */
     public function getName()
     {
-        return 'user';
+        return 'group';
     }
 }

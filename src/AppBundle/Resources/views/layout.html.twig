@@ -10,6 +10,17 @@
     {% endstylesheets %}
 {% endblock %}
 
+{% block body %}
+    <div class="container">
+        <div class="btn-group">
+            <a class="btn btn-default" href="{{ path('app_user_list') }}">Users</a>
+            <a class="btn btn-default" href="{{ path('app_group_list') }}">Groups</a>
+        </div>
+
+        {% block content %}{% endblock %}
+    </div>
+{% endblock %}
+
 {% block javascripts_body %}
     {% javascripts output='scripts/platform.js'
         '@jquery_js'

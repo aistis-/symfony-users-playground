@@ -5,6 +5,7 @@ namespace AppBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\Group as BaseGroup;
+use FOS\UserBundle\Model\UserInterface;
 
 /**
  * @ORM\Entity
@@ -38,6 +39,48 @@ class Group extends BaseGroup
     public function __construct()
     {
         $this->users = new ArrayCollection();
+    }
+
+    /**
+     * Get users.
+     *
+     * @return ArrayCollection
+     */
+    public function getUsers()
+    {
+        return $this->users;
+    }
+
+    /**
+     * Add user.
+     *
+     * @param UserInterface $user
+     *
+     * @return Group
+     */
+    public function addUser(UserInterface $user)
+    {
+        if (!$this->getUsers()->contains($user)) {
+            $this->getUsers()->add($user);
+        }
+
+        return $this;
+    }
+
+    /**
+     * Remove user.
+     *
+     * @param UserInterface $user
+     *
+     * @return Group
+     */
+    public function removeUser(UserInterface $user)
+    {
+        if ($this->getUsers()->contains($user)) {
+            $this->getUsers()->removeElement($user);
+        }
+
+        return $this;
     }
 
     /**
