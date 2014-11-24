@@ -5,3 +5,10 @@ app:
 
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
+
+root:
+    path: /
+    defaults:
+        _controller: FrameworkBundle:Redirect:urlRedirect
+        path: /user
+        permanent: true

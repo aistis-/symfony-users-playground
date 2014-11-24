@@ -1,0 +1,20 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}Playground{% endblock %}
+
+{% block stylesheets %}
+    {% stylesheets output='styles/platform.css' filter='cssrewrite'
+        '@bootstrap_css'
+    %}
+        <link href="{{ asset_url }}" type="text/css" rel="stylesheet" media="screen" />
+    {% endstylesheets %}
+{% endblock %}
+
+{% block javascripts_body %}
+    {% javascripts output='scripts/platform.js'
+        '@jquery_js'
+        '@bootstrap_js'
+    %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}
