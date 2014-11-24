@@ -12,5 +12,5 @@ User management system playground based on Symfony 2.5
 1. Update composer `php composer.phar update`
 1. Config MySQL to Vagrant or to your local machine `app/config/parameters.yml`
 1. Create database schema `php app/console doctrine:schema:create`
-1. Create default user with super admin role `php app/console fos:user:create admin --super-admin`
+1. Create default user with super admin role `php app/console fos:user:create --super-admin`
 1. Try to access `http://playground.dev` via your browser
